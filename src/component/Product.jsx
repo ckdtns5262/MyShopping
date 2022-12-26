@@ -13,8 +13,8 @@ const Product = () => {
         {items.map((a, i) => {
           return (
             <div className="col-md-4" key={items[i].title}>
-              <img src={items[i].picture} width="80%" onClick={()=>{
-                navigate('/detail')
+              <img src={items[i].picture} width="80%" alt="" onClick={()=>{
+                navigate('/detail'+i)
               }} />
               <h4>{items[i].title}</h4>
               <p>{items[i].price}원</p>
