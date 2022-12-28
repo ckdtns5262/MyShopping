@@ -1,10 +1,10 @@
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import item from "../data";
 
 
-const Product = () => {
-  let [items] = useState(item);
+
+const Product = ({items}) => {
+ 
   let navigate = useNavigate()
 
   return (
@@ -14,7 +14,7 @@ const Product = () => {
           return (
             <div className="col-md-4" key={items[i].title}>
               <img src={items[i].picture} width="80%" onClick={()=>{
-                navigate('/detail')
+                navigate('/detail' + '/' +i)
               }} />
               <h4>{items[i].title}</h4>
               <p>{items[i].price}원</p>
