@@ -1,25 +1,35 @@
 
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './component/Header';
 import Content from './component/Content';
 import { Routes, Route } from 'react-router-dom'
 import Event from './component/Event';
 import Detail from './component/Detail';
 import item from "./data"
+import Cart from './component/Cart';
+
+
 
 function App() {
 
-  let [items, setItems] = useState(item);
+  useEffect(()=>{
+    localStorage.setItem('watched', JSON.stringify( [] ))
+  },[]) 
+
+
+  let [items, setItems] = useState(item)
 
   return (
     <>
       <Header/>
+  
       <Routes>
         <Route path='/' element={<div className="">
           <Content items={items} setItems={setItems} />
         </div>}></Route>
         <Route path='*' element={<div>404 없는 페이지 입니다</div>}></Route>
+        <Route path='/cart' element={<Cart/>}></Route>
         <Route path='/detail/:id' element={<Detail items={items} />}></Route>
         <Route path='/about' element={<div>어바웃페이지임</div>}></Route>
         <Route path='/event' element={<Event />}>

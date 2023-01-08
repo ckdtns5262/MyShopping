@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Recent from '../component/Recent';
 
 const Product = ({ items,setItems }) => {
   let navigate = useNavigate();
@@ -42,13 +43,16 @@ const Product = ({ items,setItems }) => {
                   }}
                   className=''
                 />
-                
                 <h2 className="">{items[i].title}</h2>
                 <p>{items[i].price}원</p>
               </div>
             );
           })}
+          
         </div>
+      </div>
+      <div className="">
+      <Recent/>
       </div>
     </>
   );
